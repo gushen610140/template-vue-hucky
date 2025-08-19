@@ -8,7 +8,9 @@
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
     "generate:page": "node --no-warnings=ExperimentalWarning --experimental-strip-types scripts/generatePage.ts",
-    "gp": "node --no-warnings=ExperimentalWarning --experimental-strip-types scripts/generatePage.ts"
+    "gp": "node --no-warnings=ExperimentalWarning --experimental-strip-types scripts/generatePage.ts",
+    "generate:component": "node --no-warnings=ExperimentalWarning --experimental-strip-types scripts/generateComponent.ts",
+    "gc": "node --no-warnings=ExperimentalWarning --experimental-strip-types scripts/generateComponent.ts"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
