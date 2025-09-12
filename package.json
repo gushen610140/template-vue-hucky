@@ -16,6 +16,7 @@
     "@tailwindcss/vite": "^4.1.11",
     "@types/node": "^24.1.0",
     "@vitejs/plugin-vue-jsx": "^5.0.1",
+    "@vueuse/core": "^13.9.0",
     "axios": "^1.11.0",
     "daisyui": "^5.0.50",
     "motion-v": "^1.6.1",
