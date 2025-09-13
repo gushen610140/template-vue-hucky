@@ -10,22 +10,14 @@ const merchandise = ref([
   },
 ]);
 
-const {
-  currentPage,
-  pageSize,
-  nextPage,
-  prevPage,
-  changePage,
-  pageNumbers,
-  totalPages,
-  getPaginatedData,
-} = usePagination(() => merchandise.value);
+const { currentPage, changePage, pageNumbers, totalPages, getPaginatedData } =
+  usePagination(() => merchandise.value);
 const handlePageChange = (page: number) => {
   changePage(page);
 };
 
 onMounted(async () => {
-  await new Promise(async (resolve, reject) => {
+  await new Promise(() => {
     setTimeout(() => {
       merchandise.value = Array.from(range(1, 50)).map((item) => ({
         id: item,
