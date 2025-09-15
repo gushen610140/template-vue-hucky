@@ -36,6 +36,32 @@ function getComponentNameFromPath(filePath: string): string {
 }
 
 /**
+ * Generate route path from full file path, preserving directory structure
+ * @param filePath Full path to the component file (e.g., "@/pages/test/AbcPage.vue")
+ * @returns Route path (e.g., "/test/abc")
+ */
+function generateRoutePathFromFilePath(filePath: string): string {
+  // Remove the "@/pages" prefix and get the relative path
+  const relativePath = filePath.replace(/^@\/pages\//, "");
+
+  // Split into directory parts and filename
+  const pathParts = relativePath.split("/");
+  const fileName = pathParts.pop() || "";
+  const directories = pathParts.splice(3);
+
+  // Transform the filename using existing logic
+  const transformedFileName = formatPathFromComponentName(fileName);
+
+  // Combine directory path with transformed filename
+  const fullPath =
+    directories.length > 0
+      ? `/${directories.join("/")}/${transformedFileName}`
+      : `/${transformedFileName}`;
+
+  return fullPath;
+}
+
+/**
  * Generate routes from page components using Vite's import.meta.glob
  * @returns Array of route configurations
  */
@@ -46,7 +72,7 @@ function generateRoutesFromPages(): RouteRecordRaw[] {
 
   for (const path in pages) {
     const componentName = getComponentNameFromPath(path);
-    const routePath = `/${formatPathFromComponentName(componentName)}`;
+    const routePath = generateRoutePathFromFilePath(path);
 
     // Special case for home page
     const finalPath = routePath.toLowerCase() === "/home" ? "/" : routePath;
