@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
 import { range } from "radash";
 import { usePagination } from "@/utils/pagination";
 
