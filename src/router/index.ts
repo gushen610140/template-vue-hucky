@@ -3,6 +3,7 @@ import {
   createWebHashHistory,
   type RouteRecordRaw,
 } from "vue-router";
+import { addRulesForRoutes } from "./rules";
 
 /**
  * 通过 vite 的 meta.glob 从文件系统读取路由文件
@@ -49,10 +50,12 @@ function getRoutePathFromFilePath(filePath: string): string {
 
 const routes: RouteRecordRaw[] = generateRoutesFromPages();
 
+const ruledRoutes = addRulesForRoutes(routes);
+
 // WebHash 使用 /# 开头处理前端页面路由
 const router = createRouter({
   history: createWebHashHistory(),
-  routes,
+  routes: ruledRoutes,
 });
 
 export default router;
