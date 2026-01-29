@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: 熟悉依赖项
-      link: /quick_start/dependencies
+      link: /quick-start/dependencies
     - theme: alt
       text: 自动路由
-      link: /cli_feature/auto_router
+      link: /cli-feature/auto-router
 
 features:
   - title: 样式规范化

@@ -12,17 +12,17 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "首页", link: "/" },
-      { text: "文档", link: "/quick_start/dependencies" },
+      { text: "文档", link: "/quick-start/dependencies" },
     ],
 
     sidebar: [
       {
         text: "快速上手",
-        items: [{ text: "依赖项介绍", link: "/quick_start/dependencies" }],
+        items: [{ text: "依赖项介绍", link: "/quick-start/dependencies" }],
       },
       {
         text: "脚手架特色",
-        items: [{ text: "自动路由", link: "/cli_feature/auto_router" }],
+        items: [{ text: "自动路由", link: "/cli-feature/auto-router" }],
       },
     ],
 
@@ -46,4 +46,5 @@ export default defineConfig({
   vite: {
     plugins: [groupIconVitePlugin()],
   },
+  head: [["link", { rel: "icon", href: "/logo.png" }]],
 });
