@@ -1,47 +1,14 @@
-enum GlobalTheme {
-  Light = "light",
-  Dark = "dark",
-  Cupcake = "cupcake",
-  Bumblebee = "bumblebee",
-  Emerald = "emerald",
-  Corporate = "corporate",
-  Synthwave = "synthwave",
-  Retro = "retro",
-  Cyberpunk = "cyberpunk",
-  Valentine = "valentine",
-  Halloween = "halloween",
-  Garden = "garden",
-  Forest = "forest",
-  Aqua = "aqua",
-  Lofi = "lofi",
-  Pastel = "pastel",
-  Fantasy = "fantasy",
-  Wireframe = "wireframe",
-  Black = "black",
-  Luxury = "luxury",
-  Dracula = "dracula",
-  Cmyk = "cmyk",
-  Autumn = "autumn",
-  Business = "business",
-  Acid = "acid",
-  Lemonade = "lemonade",
-  Night = "night",
-  Coffee = "coffee",
-  Winter = "winter",
-  Dim = "dim",
-  Nord = "nord",
-  Sunset = "sunset",
-  Caramellatte = "caramellatte",
-  Abyss = "abyss",
-  Silk = "silk",
-}
+import { useThemeStore, GlobalTheme } from "@/stores/ThemeStore";
+
+const themeStore = useThemeStore();
 
 const optionalThemes = Object.values(GlobalTheme);
 
-const curGlobalTheme = ref(GlobalTheme.Light);
+// 一定不要通过改变 curGlobalTheme 来改变主题，而要通过 changeGlobalTheme 来改变主题
+const curGlobalTheme = computed(() => themeStore.theme);
 
 function changeGlobalTheme(theme: GlobalTheme) {
-  curGlobalTheme.value = theme;
+  themeStore.setTheme(theme);
 }
 
 export const useGlobalThemeHook = () => ({
