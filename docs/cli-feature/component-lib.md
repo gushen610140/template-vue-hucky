@@ -26,4 +26,14 @@
 
 ## 关于 Shadcn
 
+:::warning 警告
+Shadcn 组件的样式将会被 Daisy-ui 组件样式所覆盖。阅读以下文档进行调整。
+:::
+
 `components/ui` 目录下是 shadcn-vue 提供的组件代码，您可以在项目中直接调用这些组件，同时也可以根据需要进行调整。
+
+由于 daisy-ui 和 shadcn 同时使用类似 --color-primary 的 css 变量来调整主题样式，Hucky 删除了 shadcn 在全局样式上做的调整，如果您需要调整 shadcn 中的组件样式，请通过在组件内部的 style 标签中设置 css 变量来实现。
+
+:::tip 提示
+尽管 shadcn 组件的样式确实可以调整，但仅建议对 css 掌握度较高的开发者调整。如果您不熟悉 css 及 css 变量，仍然建议您接受 shadcn 的组件使用 daisy-ui 提供的默认样式，或者不使用 shadcn 组件。
+:::

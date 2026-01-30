@@ -1,3 +1,4 @@
+// 存在一个重要问题: 不清楚 daisyui 是怎么替换主题的 目前没有做任何配置
 import { useThemeStore, GlobalTheme } from "@/stores/ThemeStore";
 
 const themeStore = useThemeStore();
