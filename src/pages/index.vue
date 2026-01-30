@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import ChangeThemeDropdownButton from "@/components/button/ChangeThemeDropdownButton.vue";
+import DatePicker from "@/components/date-picker/DatePicker.vue";
 import { useGlobalThemeHook } from "@/hooks/globalThemeHook";
 
 const { curGlobalTheme } = useGlobalThemeHook();
@@ -11,7 +12,8 @@ const { curGlobalTheme } = useGlobalThemeHook();
       <div class="max-w-md">
         <h1 class="text-5xl font-bold">Hucky</h1>
         <p class="py-6">自动路由系统已加载</p>
-        <ChangeThemeDropdownButton />
+        <ChangeThemeDropdownButton class="mb-4" />
+        <DatePicker />
       </div>
     </div>
   </div>

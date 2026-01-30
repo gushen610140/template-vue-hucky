@@ -22,7 +22,10 @@ export default defineConfig({
       },
       {
         text: "脚手架特色",
-        items: [{ text: "自动路由", link: "/cli-feature/auto-router" }],
+        items: [
+          { text: "自动路由", link: "/cli-feature/auto-router" },
+          { text: "组件库", link: "/cli-feature/component-lib" },
+        ],
       },
     ],
 
