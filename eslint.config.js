@@ -24,6 +24,19 @@ export default typescriptEslint.config(
       "vue/singleline-html-element-content-newline": "off",
       "vue/max-attributes-per-line": "off",
       "vue/multi-word-component-names": "off",
+      "vue/html-self-closing": [
+        "warn",
+        {
+          html: {
+            void: "always",
+            normal: "always",
+            component: "always",
+          },
+          svg: "always",
+          math: "always",
+        },
+      ],
+      "@typescript-eslint/no-unused-vars": "warn",
     },
   },
 );
