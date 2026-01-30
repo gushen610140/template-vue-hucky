@@ -20,6 +20,10 @@
 
 我们使用 daisyui 内置的 35 种主题，可以通过 `hooks/globalThemeHook` 中的方法来切换主题，我们也封装了 `components/button/ChangeThemeDropdownButton.vue` 下拉框按钮组件来方便切换主题。
 
+如果您需要自定义主题，请查询 [daisyui 主题文档](https://daisyui.com/docs/themes/)，Hucky 规定仅使用这种方式自定义主题。
+
+当您需要调整的是某个具体的组件样式时，请优先使用 tailwindcss 深入组件内部进行覆盖调整，而不是全局调整 css 变量的值。
+
 ## 关于 Shadcn
 
 `components/ui` 目录下是 shadcn-vue 提供的组件代码，您可以在项目中直接调用这些组件，同时也可以根据需要进行调整。

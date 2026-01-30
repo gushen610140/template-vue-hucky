@@ -10,9 +10,9 @@ const { curGlobalTheme } = useGlobalThemeHook();
   <div class="hero min-h-screen" :data-theme="curGlobalTheme">
     <div class="hero-content text-center">
       <div class="max-w-md">
-        <h1 class="text-5xl font-bold">Hucky</h1>
-        <p class="py-6">自动路由系统已加载</p>
-        <ChangeThemeDropdownButton class="mb-4" />
+        <h1 class="text-5xl font-bold pb-6">Hucky</h1>
+        <p class="pb-6">自动路由系统已加载</p>
+        <ChangeThemeDropdownButton class="pb-6" />
         <DatePicker />
       </div>
     </div>
