@@ -3,7 +3,7 @@ import { useI18n } from "vue-i18n";
 import { useLanguageStore } from "./stores/LanguageStore";
 
 onMounted(() => {
-  // 加载 i18n
+  // 加载 i18n 初始语言
   useI18n().locale.value = useLanguageStore().language;
 });
 </script>
