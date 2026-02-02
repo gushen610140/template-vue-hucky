@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { useGlobalThemeHook } from "@/hooks/globalThemeHook";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const { changeGlobalTheme, curGlobalTheme, optionalThemes } =
   useGlobalThemeHook();
@@ -31,7 +34,7 @@ const { changeGlobalTheme, curGlobalTheme, optionalThemes } =
         tabindex="-1"
         class="dropdown-content bg-base-300 rounded-box z-1 w-52 p-2 shadow-2xl max-h-84 overflow-auto mt-6"
       >
-        <li class="menu-title text-xs my-1">主题</li>
+        <li class="menu-title text-xs my-1">{{ t("nav.theme") }}</li>
         <li
           v-for="optionalTheme in optionalThemes"
           :key="optionalTheme"

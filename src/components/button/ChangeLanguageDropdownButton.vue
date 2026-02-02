@@ -1,8 +1,15 @@
 <script setup lang="ts">
 import { useGlobalLanguageHook } from "@/hooks/globalLanguageHook";
+import { useI18n } from "vue-i18n";
 
 const { changeGlobalLanguage, curGlobalLanguage, optionalLanguages } =
   useGlobalLanguageHook();
+
+const { locale, t } = useI18n();
+
+const onClickChangeLocal = (newLanguage: string) => {
+  changeGlobalLanguage(newLanguage, locale);
+};
 </script>
 
 <template>
@@ -41,7 +48,7 @@ const { changeGlobalLanguage, curGlobalLanguage, optionalLanguages } =
       class="dropdown-content bg-base-200 text-base-content rounded-box top-px mt-14 w-56 overflow-y-auto border-[length:var(--border)] border-white/5 shadow-2xl outline-[length:var(--border)] outline-black/5"
     >
       <ul class="menu menu-sm w-full">
-        <li class="menu-title text-xs">语言</li>
+        <li class="menu-title text-xs">{{ t("nav.locale") }}</li>
         <li
           v-for="optionalLanguage in optionalLanguages"
           :key="optionalLanguage.label"
@@ -50,7 +57,7 @@ const { changeGlobalLanguage, curGlobalLanguage, optionalLanguages } =
             :class="[
               curGlobalLanguage === optionalLanguage.label ? 'menu-active' : '',
             ]"
-            @click="changeGlobalLanguage(optionalLanguage.label)"
+            @click="onClickChangeLocal(optionalLanguage.label)"
           >
             <span class="pe-4 font-mono font-bold opacity-40">
               {{ optionalLanguage.label }}

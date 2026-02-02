@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import ChangeLanguageDropdownButton from "@/components/button/ChangeLanguageDropdownButton.vue";
 import ChangeThemeDropdownButton from "@/components/button/ChangeThemeDropdownButton.vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -27,16 +30,24 @@ import ChangeThemeDropdownButton from "@/components/button/ChangeThemeDropdownBu
           tabindex="-1"
           class="menu dropdown-content bg-base-100 rounded-box z-1 mt-5 w-52 p-2 shadow"
         >
-          <li><a>首页</a></li>
-          <li><a>关于</a></li>
+          <li>
+            <a>{{ t("nav.home") }}</a>
+          </li>
+          <li>
+            <a>{{ t("nav.about") }}</a>
+          </li>
         </ul>
       </div>
-      <a class="btn btn-ghost text-xl">daisyUI</a>
+      <a class="btn btn-ghost text-xl">Hucky</a>
     </div>
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
-        <li><a>首页</a></li>
-        <li><a>关于</a></li>
+        <li>
+          <a>{{ t("nav.home") }}</a>
+        </li>
+        <li>
+          <a>{{ t("nav.about") }}</a>
+        </li>
       </ul>
     </div>
     <div class="navbar-end">
