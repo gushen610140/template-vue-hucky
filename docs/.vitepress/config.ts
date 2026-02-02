@@ -25,6 +25,7 @@ export default defineConfig({
         items: [
           { text: "自动路由", link: "/cli-feature/auto-router" },
           { text: "组件库", link: "/cli-feature/component-lib" },
+          { text: "国际化", link: "/cli-feature/international" },
         ],
       },
     ],

@@ -3,7 +3,6 @@ import {
   GlobalLanguage,
   languageMap,
 } from "@/stores/LanguageStore";
-import { Locale } from "vue-i18n";
 
 const languageStore = useLanguageStore();
 
