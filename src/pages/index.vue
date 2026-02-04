@@ -41,6 +41,8 @@ const progress = ref([
   <div class="bg-base-200">
     <div class="h-screen flex flex-col">
       <NavBar class="fixed top-0 left-0 z-10" />
+      <!-- 同高度占位颜色叠加 -->
+      <div class="h-16 bg-base-300" />
       <div class="hero flex-1">
         <div class="hero-content text-center">
           <div class="max-w-md">

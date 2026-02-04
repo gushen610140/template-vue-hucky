@@ -4,6 +4,7 @@ import ChangeThemeDropdownButton from "@/components/button/ChangeThemeDropdownBu
 import { useI18n } from "vue-i18n";
 import { throttle } from "radash";
 import { AnimatePresence, motion } from "motion-v";
+import { navigateTo } from "@/utils/navigator";
 
 const { t } = useI18n();
 
@@ -28,7 +29,7 @@ window.addEventListener("scroll", handleThrottleScroll);
     <AnimatePresence>
       <motion.div
         v-show="showNavBar"
-        class="navbar bg-base-200 shadow-sm"
+        class="navbar glass shadow-sm h-16"
         :exit="{
           y: -100,
           transition: {
@@ -59,10 +60,10 @@ window.addEventListener("scroll", handleThrottleScroll);
               class="menu dropdown-content bg-base-100 rounded-box z-1 mt-5 w-52 p-2 shadow"
             >
               <li>
-                <a>{{ t("nav.home") }}</a>
+                <a @click="navigateTo('/')">{{ t("nav.home") }}</a>
               </li>
               <li>
-                <a>{{ t("nav.about") }}</a>
+                <a @click="navigateTo('/about')">{{ t("nav.about") }}</a>
               </li>
             </ul>
           </div>
@@ -71,10 +72,10 @@ window.addEventListener("scroll", handleThrottleScroll);
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1">
             <li>
-              <a>{{ t("nav.home") }}</a>
+              <a @click="navigateTo('/')">{{ t("nav.home") }}</a>
             </li>
             <li>
-              <a>{{ t("nav.about") }}</a>
+              <a @click="navigateTo('/about')">{{ t("nav.about") }}</a>
             </li>
           </ul>
         </div>
