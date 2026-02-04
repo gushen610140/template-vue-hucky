@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import DatePickerDisplayCard from "@/components/card/DatePickerDisplayCard.vue";
 import DevelopProgressCard from "@/components/card/DevelopProgressCard.vue";
+import FooterBar from "@/components/layout/FooterBar.vue";
 import NavBar from "@/components/menu/NavBar.vue";
 import { navigateTo } from "@/utils/navigator";
 
@@ -59,7 +60,7 @@ const progress = ref([
         </div>
       </div>
     </div>
-    <div class="p-4 min-h-screen">
+    <div class="p-4">
       <h1 class="text-4xl font-bold mb-12 ml-10">脚手架开发进度</h1>
       <div class="w-full grid grid-cols-3 gap-4 justify-items-center">
         <DevelopProgressCard
@@ -72,12 +73,13 @@ const progress = ref([
         />
       </div>
     </div>
-    <div class="p-4 min-h-screen">
+    <div class="p-4">
       <h1 class="text-4xl font-bold mb-12 ml-10">组件演示</h1>
       <div class="w-full grid grid-cols-3 gap-4 justify-items-center">
         <DatePickerDisplayCard />
       </div>
     </div>
+    <FooterBar />
   </div>
 </template>
 
