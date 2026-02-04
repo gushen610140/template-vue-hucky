@@ -27,6 +27,8 @@ export default defineConfig({
           { text: "组件库", link: "/cli-feature/component-lib" },
           { text: "国际化", link: "/cli-feature/international" },
           { text: "图表", link: "/cli-feature/chart" },
+          { text: "辅助工具", link: "/cli-feature/radash" },
+          { text: "动画", link: "/cli-feature/motion" },
         ],
       },
     ],

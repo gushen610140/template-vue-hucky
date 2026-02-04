@@ -5,6 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
+import MotionResolver from "motion-v/resolver";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
 // https://vite.dev/config/
@@ -19,7 +20,7 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [ElementPlusResolver(), MotionResolver()],
       dts: true,
     }),
   ],

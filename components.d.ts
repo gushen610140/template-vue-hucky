@@ -12,6 +12,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AnimatePresence: typeof import('motion-v')['AnimatePresence']
     Button: typeof import('./src/components/ui/button/Button.vue')['default']
     Calendar: typeof import('./src/components/ui/calendar/Calendar.vue')['default']
     CalendarCell: typeof import('./src/components/ui/calendar/CalendarCell.vue')['default']
@@ -47,6 +48,7 @@ declare module 'vue' {
 
 // For TSX support
 declare global {
+  const AnimatePresence: typeof import('motion-v')['AnimatePresence']
   const Button: typeof import('./src/components/ui/button/Button.vue')['default']
   const Calendar: typeof import('./src/components/ui/calendar/Calendar.vue')['default']
   const CalendarCell: typeof import('./src/components/ui/calendar/CalendarCell.vue')['default']
