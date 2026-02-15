@@ -5,6 +5,7 @@ import { useI18n } from "vue-i18n";
 import { throttle } from "radash";
 import { AnimatePresence, motion } from "motion-v";
 import { navigateTo } from "@/utils/navigator";
+import UserAuthNavButton from "../button/UserAuthNavButton.vue";
 
 const { t } = useI18n();
 
@@ -82,6 +83,7 @@ window.addEventListener("scroll", handleThrottleScroll);
         <div class="navbar-end">
           <ChangeThemeDropdownButton />
           <ChangeLanguageDropdownButton />
+          <UserAuthNavButton />
         </div>
       </motion.div>
     </AnimatePresence>

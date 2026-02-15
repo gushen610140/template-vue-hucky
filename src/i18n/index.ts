@@ -8,6 +8,19 @@ export interface messagesInterface {
     about: string;
     theme: string;
     locale: string;
+    login: string;
+    register: string;
+  };
+  auth: {
+    login: string;
+    register: string;
+    email: string;
+    password: string;
+    remember_me: string;
+    forget_password: string;
+    no_account: string;
+    agree_terms: string;
+    have_account: string;
   };
 }
 

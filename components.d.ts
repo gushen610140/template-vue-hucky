@@ -13,6 +13,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AnimatePresence: typeof import('motion-v')['AnimatePresence']
+    AuthDialog: typeof import('./src/components/dialog/AuthDialog.vue')['default']
     Button: typeof import('./src/components/ui/button/Button.vue')['default']
     Calendar: typeof import('./src/components/ui/calendar/Calendar.vue')['default']
     CalendarCell: typeof import('./src/components/ui/calendar/CalendarCell.vue')['default']
@@ -44,12 +45,14 @@ declare module 'vue' {
     PopoverTrigger: typeof import('./src/components/ui/popover/PopoverTrigger.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    UserAuthNavButton: typeof import('./src/components/button/UserAuthNavButton.vue')['default']
   }
 }
 
 // For TSX support
 declare global {
   const AnimatePresence: typeof import('motion-v')['AnimatePresence']
+  const AuthDialog: typeof import('./src/components/dialog/AuthDialog.vue')['default']
   const Button: typeof import('./src/components/ui/button/Button.vue')['default']
   const Calendar: typeof import('./src/components/ui/calendar/Calendar.vue')['default']
   const CalendarCell: typeof import('./src/components/ui/calendar/CalendarCell.vue')['default']
@@ -81,4 +84,5 @@ declare global {
   const PopoverTrigger: typeof import('./src/components/ui/popover/PopoverTrigger.vue')['default']
   const RouterLink: typeof import('vue-router')['RouterLink']
   const RouterView: typeof import('vue-router')['RouterView']
+  const UserAuthNavButton: typeof import('./src/components/button/UserAuthNavButton.vue')['default']
 }

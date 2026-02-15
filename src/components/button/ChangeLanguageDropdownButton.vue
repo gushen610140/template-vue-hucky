@@ -18,8 +18,6 @@ const onClickChangeLocal = (newLanguage: string) => {
       tabindex="0"
       role="button"
       class="btn btn-sm btn-ghost gap-1 px-1.5 font-bold"
-      aria-label="Language"
-      title="Change Language"
     >
       <svg
         class="text-base-content/70 size-4"
