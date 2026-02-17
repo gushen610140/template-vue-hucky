@@ -46,17 +46,17 @@ const progress = ref([
       <div class="hero flex-1">
         <div class="hero-content text-center">
           <div class="max-w-md">
-            <h1 class="text-5xl font-bold">欢迎加入</h1>
+            <h1 class="text-5xl font-bold">{{ $t("home.welcome") }}</h1>
             <p class="py-6">
-              超现代化的 Vue3 Based 脚手架<br />
-              赋予您高效的开发体验<br />
-              使用 bun docs 命令启动 Hucky 的文档服务器
+              {{ $t("home.intro_line1") }}<br />
+              {{ $t("home.intro_line2") }}<br />
+              {{ $t("home.intro_line3") }}
             </p>
             <button
               class="btn btn-primary"
               @click="navigateTo('http://localhost:5174')"
             >
-              查阅文档
+              {{ $t("home.read_doc") }}
             </button>
           </div>
         </div>

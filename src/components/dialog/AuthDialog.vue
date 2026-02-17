@@ -129,7 +129,9 @@ const clickLoginButtonEvent = async () => {
               <div class="flex items-center gap-16">
                 <!-- 二维码登录区域 -->
                 <div class="flex flex-col items-center gap-4 w-[200px]">
-                  <div class="text-2xl select-none">扫描二维码登录</div>
+                  <div class="text-2xl select-none">
+                    {{ t("auth.scan_qr") }}
+                  </div>
                   <img
                     v-if="authQrcode"
                     :src="authQrcode"
@@ -138,7 +140,7 @@ const clickLoginButtonEvent = async () => {
                   />
                   <div v-if="!authQrcode" class="skeleton h-48 w-48" />
                   <div class="text-sm text-gray-500 select-none">
-                    请打开手机微信 APP 扫码登录
+                    {{ t("auth.scan_qr_more") }}
                   </div>
                 </div>
 
@@ -162,7 +164,7 @@ const clickLoginButtonEvent = async () => {
                     <!-- 注册暂未开放 -->
                     <div class="tooltip">
                       <div class="tooltip-content">
-                        <div class="font-black">暂未开放</div>
+                        <div class="font-black">{{ t("auth.not_open") }}</div>
                       </div>
                       <div
                         class="text-2xl cursor-pointer transition duration-300"

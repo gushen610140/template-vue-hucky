@@ -9,6 +9,10 @@ export const zh_CNMessages: messagesInterface = {
     login: "登录",
     register: "注册",
     logout: "退出登录",
+    logout_more_title: "退出登录",
+    logout_more: "准备切换新的账号吗或者是退出以保证您的安全吗？",
+    login_more_title: "加入我们",
+    login_more: "开始您的新开发体验",
   },
   auth: {
     login: "登录",
@@ -23,5 +27,15 @@ export const zh_CNMessages: messagesInterface = {
     agree_terms: "我同意《用户协议》相关条款和条件",
     have_account: "已经有账号？",
     logout: "退出登录",
+    scan_qr: "扫描二维码登录",
+    scan_qr_more: "请打开手机微信 APP 扫码登录",
+    not_open: "暂未开放",
+  },
+  home: {
+    welcome: "欢迎来到 Hucky",
+    intro_line1: "超现代化的 Vue3 Based 脚手架",
+    intro_line2: "赋予您极致高效且规范的开发体验",
+    intro_line3: "使用 bun docs 命令启动 Hucky 的文档服务器",
+    read_doc: "阅读文档",
   },
 };

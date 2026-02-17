@@ -11,6 +11,10 @@ export interface messagesInterface {
     login: string;
     register: string;
     logout: string;
+    logout_more_title: string;
+    logout_more: string;
+    login_more_title: string;
+    login_more: string;
   };
   auth: {
     login: string;
@@ -25,6 +29,16 @@ export interface messagesInterface {
     agree_terms: string;
     have_account: string;
     logout: string;
+    scan_qr: string;
+    scan_qr_more: string;
+    not_open: string;
+  };
+  home: {
+    welcome: string;
+    intro_line1: string;
+    intro_line2: string;
+    intro_line3: string;
+    read_doc: string;
   };
 }
 

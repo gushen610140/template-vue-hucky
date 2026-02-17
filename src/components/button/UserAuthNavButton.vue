@@ -49,10 +49,10 @@ const handleLogout = () => {
       tabindex="-1"
       class="dropdown-content z-1 w-100 p-2"
     >
-      <div class="card bg-base-200 w-96 mt-4 shadow-sm">
+      <div class="card bg-base-200 w-96 mt-5 shadow-sm">
         <div class="card-body">
-          <h2 class="card-title">现在加入!</h2>
-          <p>登录我们的系统</p>
+          <h2 class="card-title">{{ $t("nav.login_more_title") }}</h2>
+          <p>{{ $t("nav.login_more") }}</p>
           <div class="card-actions justify-end">
             <button
               class="btn btn-sm"
@@ -83,10 +83,10 @@ const handleLogout = () => {
       tabindex="-1"
       class="dropdown-content z-1 w-100 p-2"
     >
-      <div class="card bg-base-200 w-96 mt-4 shadow-sm">
+      <div class="card bg-base-200 w-96 mt-5 shadow-sm">
         <div class="card-body">
-          <h2 class="card-title">退出登录</h2>
-          <p>切换您的账号</p>
+          <h2 class="card-title">{{ $t("nav.logout") }}</h2>
+          <p>{{ $t("nav.logout_more") }}</p>
           <div class="card-actions justify-end">
             <button class="btn btn-primary btn-sm" @click="handleLogout">
               {{ $t("nav.logout") }}

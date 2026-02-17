@@ -9,6 +9,10 @@ export const en_USMessages: messagesInterface = {
     login: "Login",
     register: "Register",
     logout: "Logout",
+    logout_more_title: "Logout Confirmation",
+    logout_more: "Ready to change account?",
+    login_more_title: "Join us Now!",
+    login_more: "Start your new develop experience",
   },
   auth: {
     login: "Login",
@@ -23,5 +27,15 @@ export const en_USMessages: messagesInterface = {
     agree_terms: "Agree to the Terms & Conditions",
     have_account: "Already have an account?",
     logout: "Logout",
+    scan_qr: "Scan QR Code",
+    scan_qr_more: "Please open the phone's WeChat APP to scan the QR code",
+    not_open: "Not Open Yet",
+  },
+  home: {
+    welcome: "Welcome to Hucky",
+    intro_line1: "A Vue 3 + TypeScript + Vite template",
+    intro_line2: "with Vue I18n, Vue Router, and Vuex",
+    intro_line3: "and more...",
+    read_doc: "Read Documentation",
   },
 };
