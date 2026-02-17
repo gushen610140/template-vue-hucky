@@ -13,6 +13,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AnimatePresence: typeof import('motion-v')['AnimatePresence']
+    AnimText: typeof import('./src/components/special/AnimText.vue')['default']
     AuthDialog: typeof import('./src/components/dialog/AuthDialog.vue')['default']
     Button: typeof import('./src/components/ui/button/Button.vue')['default']
     Calendar: typeof import('./src/components/ui/calendar/Calendar.vue')['default']
@@ -52,6 +53,7 @@ declare module 'vue' {
 // For TSX support
 declare global {
   const AnimatePresence: typeof import('motion-v')['AnimatePresence']
+  const AnimText: typeof import('./src/components/special/AnimText.vue')['default']
   const AuthDialog: typeof import('./src/components/dialog/AuthDialog.vue')['default']
   const Button: typeof import('./src/components/ui/button/Button.vue')['default']
   const Calendar: typeof import('./src/components/ui/calendar/Calendar.vue')['default']

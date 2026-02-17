@@ -9,8 +9,9 @@
 
 @plugin "daisyui/theme" {
   name: "light";
-  --color-primary: blue;
-  --color-secondary: teal;
+  --color-primary: #5092d4;
+  --color-secondary: #bfd7f1;
+  --color-accent: #76b9ef;
 }
 
 /* Custom Scrollbar Styles */

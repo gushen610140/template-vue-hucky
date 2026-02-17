@@ -3,6 +3,7 @@ import DatePickerDisplayCard from "@/components/card/DatePickerDisplayCard.vue";
 import DevelopProgressCard from "@/components/card/DevelopProgressCard.vue";
 import FooterBar from "@/components/layout/FooterBar.vue";
 import NavBar from "@/components/menu/NavBar.vue";
+import AnimText from "@/components/special/AnimText.vue";
 import { navigateTo } from "@/utils/navigator";
 
 const progress = ref([
@@ -46,17 +47,24 @@ const progress = ref([
       <div class="hero flex-1">
         <div class="hero-content text-center">
           <div class="max-w-md">
-            <h1 class="text-5xl font-bold">{{ $t("home.welcome") }}</h1>
-            <p class="py-6">
-              {{ $t("home.intro_line1") }}<br />
+            <!-- <h1 class="text-5xl font-bold">{{ $t("home.welcome") }}</h1> -->
+            <h1 class="text-5xl font-bold">
+              <AnimText text="home.welcome" />
+            </h1>
+            <div class="py-6">
+              <!-- {{ $t("home.intro_line1") }}<br />
               {{ $t("home.intro_line2") }}<br />
-              {{ $t("home.intro_line3") }}
-            </p>
+              {{ $t("home.intro_line3") }} -->
+              <AnimText text="home.intro_line1" /><br />
+              <AnimText text="home.intro_line2" /><br />
+              <AnimText text="home.intro_line3" />
+            </div>
             <button
               class="btn btn-primary"
               @click="navigateTo('http://localhost:5174')"
             >
-              {{ $t("home.read_doc") }}
+              <!-- {{ $t("home.read_doc") }} -->
+              <AnimText text="home.read_doc" />
             </button>
           </div>
         </div>

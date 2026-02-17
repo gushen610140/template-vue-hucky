@@ -3,6 +3,7 @@ import {
   GlobalLanguage,
   languageMap,
 } from "@/stores/LanguageStore";
+import { languageChangeBus } from "./bus/languageChangeBus";
 
 const languageStore = useLanguageStore();
 
@@ -20,8 +21,13 @@ function changeGlobalLanguage(
   language: GlobalLanguage,
   locale: WritableComputedRef<string>,
 ) {
-  languageStore.setLanguage(language);
-  locale.value = language;
+  // 延迟切换先通知其他组件播放动画
+  languageChangeBus.emit("language changed");
+
+  setTimeout(() => {
+    languageStore.setLanguage(language);
+    locale.value = language;
+  }, 300);
 }
 
 export const useGlobalLanguageHook = () => ({
