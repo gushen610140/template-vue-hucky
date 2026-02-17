@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { loginByEmailPasswordWithOauthApi } from "@/apis/system/oauth";
+import { getUserInfoApi } from "@/apis/system/user";
+import { getAuthQrcodeApi } from "@/apis/temp/auth-qrcode";
 import { closeAuthDialog } from "@/hooks/dialog/renderAuthDialog";
+import { useUserStore } from "@/stores/UserStore";
 import { AnimatePresence, motion } from "motion-v";
 import { useI18n } from "vue-i18n";
 
@@ -12,10 +16,12 @@ const props = defineProps({
   },
 });
 
-const authFormType = ref<"login" | "register">(props.defaultAuthFormType);
+const authFormType = ref<"login" | "register" | "transition">(
+  props.defaultAuthFormType,
+);
 
 const changeAuthFormType = (type: "login" | "register") => {
-  authFormType.value = "";
+  authFormType.value = "transition";
   setTimeout(() => {
     authFormType.value = type;
   }, 300);
@@ -28,6 +34,49 @@ const closeAuthDialogWaitAnim = () => {
     closeAuthDialog();
   }, 500);
 };
+
+// 登录方式
+const loginType = ref<"password" | "phone">("password");
+
+// 登录二维码
+const authQrcode = ref("");
+
+onMounted(async () => {
+  const qrImg = await getAuthQrcodeApi();
+  authQrcode.value = URL.createObjectURL(qrImg);
+});
+
+// 控制登录表单宽度
+const loginFormWidth = computed(() => {
+  return authFormType.value === "login" ? "900px" : "550px";
+});
+
+// 登录表单数据绑定
+const loginForm = reactive({
+  email: "",
+  password: "",
+});
+
+// 登录按钮点击事件
+const clickLoginButtonEvent = async () => {
+  const { email, password } = loginForm;
+  if (!email || !password) {
+    return;
+  }
+  const res = await loginByEmailPasswordWithOauthApi({
+    email,
+    password,
+  });
+  if (res.code === 0) {
+    const store = useUserStore();
+    store.setAccessToken(res.data.access_token);
+    store.setRefreshToken(res.data.refresh_token);
+    // 进一步获取用户信息
+    const userInfoRes = await getUserInfoApi();
+    store.setUserInfo(userInfoRes.data);
+    closeAuthDialogWaitAnim();
+  }
+};
 </script>
 
 <template>
@@ -38,7 +87,7 @@ const closeAuthDialogWaitAnim = () => {
           v-show="isNotClose"
           class="wrapper"
           :initial="{ opacity: 0, scale: 0 }"
-          :animate="{ opacity: 1, scale: 1 }"
+          :animate="{ opacity: 1, scale: 1, width: loginFormWidth }"
           :transition="{
             duration: 0.4,
             scale: { type: 'spring', visualDuration: 0.4, bounce: 0.5 },
@@ -77,50 +126,106 @@ const closeAuthDialogWaitAnim = () => {
                 opacity: 0,
               }"
             >
-              <h2>
-                {{ t("auth.login") }}
-              </h2>
-              <form action="#">
-                <div class="input-box">
-                  <span class="icon">
-                    <span class="icon-[material-symbols--mail-outline]" />
-                  </span>
-                  <input type="text" required />
-                  <label>{{ t("auth.email") }}</label>
-                </div>
-                <div class="input-box">
-                  <span class="icon">
-                    <span class="icon-[material-symbols--lock-outline]" />
-                  </span>
-                  <input type="password" required />
-                  <label>{{ t("auth.password") }}</label>
+              <div class="flex items-center gap-16">
+                <!-- 二维码登录区域 -->
+                <div class="flex flex-col items-center gap-4 w-[200px]">
+                  <div class="text-2xl select-none">扫描二维码登录</div>
+                  <img
+                    v-if="authQrcode"
+                    :src="authQrcode"
+                    alt="登录二维码"
+                    class="h-48 w-48"
+                  />
+                  <div v-if="!authQrcode" class="skeleton h-48 w-48" />
+                  <div class="text-sm text-gray-500 select-none">
+                    请打开手机微信 APP 扫码登录
+                  </div>
                 </div>
 
-                <div class="remember-forgot">
-                  <label class="label">
-                    <input type="checkbox" class="checkbox checkbox-xs" />
-                    {{ t("auth.remember_me") }}
-                  </label>
-                  <a class="label" href="#">{{ t("auth.forget_password") }}</a>
+                <div class="h-48 w-[1px] bg-gray-300/70" />
+
+                <!-- 账号登录区域 -->
+                <div>
+                  <div class="flex justify-center items-center gap-3">
+                    <div
+                      class="text-2xl cursor-pointer transition duration-300"
+                      :class="{ 'text-gray-400': loginType === 'phone' }"
+                      :transition="{
+                        duration: 0.3,
+                      }"
+                      @click="loginType = 'password'"
+                    >
+                      {{ t("auth.login_password") }}
+                    </div>
+                    <div class="h-8 w-[1px] bg-gray-300/70" />
+
+                    <!-- 注册暂未开放 -->
+                    <div class="tooltip">
+                      <div class="tooltip-content">
+                        <div class="font-black">暂未开放</div>
+                      </div>
+                      <div
+                        class="text-2xl cursor-pointer transition duration-300"
+                        :class="{ 'text-gray-400': loginType === 'password' }"
+                        :transition="{
+                          duration: 0.3,
+                        }"
+                      >
+                        {{ t("auth.login_phone") }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 表单区域 -->
+                  <form action="#">
+                    <div class="input-box">
+                      <span class="icon">
+                        <span class="icon-[material-symbols--mail-outline]" />
+                      </span>
+                      <input v-model="loginForm.email" type="text" required />
+                      <label>{{ t("auth.email") }}</label>
+                    </div>
+                    <div class="input-box">
+                      <span class="icon">
+                        <span class="icon-[material-symbols--lock-outline]" />
+                      </span>
+                      <input
+                        v-model="loginForm.password"
+                        type="password"
+                        required
+                      />
+                      <label>{{ t("auth.password") }}</label>
+                    </div>
+
+                    <div class="remember-forgot">
+                      <label class="label">
+                        <input type="checkbox" class="checkbox checkbox-xs" />
+                        {{ t("auth.remember_me") }}
+                      </label>
+                      <a class="label" href="#">{{
+                        t("auth.forget_password")
+                      }}</a>
+                    </div>
+                    <button
+                      class="btn bg-primary text-primary-content"
+                      @click="clickLoginButtonEvent"
+                    >
+                      {{ t("auth.login") }}
+                    </button>
+                    <div
+                      class="login-register"
+                      @click="changeAuthFormType('register')"
+                    >
+                      <p>
+                        {{ t("auth.no_account") }}
+                        <a class="register-link cursor-pointer">
+                          {{ t("auth.register") }}
+                        </a>
+                      </p>
+                    </div>
+                  </form>
                 </div>
-                <button
-                  type="submit"
-                  class="btn bg-primary text-primary-content"
-                >
-                  {{ t("auth.login") }}
-                </button>
-                <div
-                  class="login-register"
-                  @click="changeAuthFormType('register')"
-                >
-                  <p>
-                    {{ t("auth.no_account") }}
-                    <a class="register-link cursor-pointer">
-                      {{ t("auth.register") }}
-                    </a>
-                  </p>
-                </div>
-              </form>
+              </div>
             </motion.div>
           </AnimatePresence>
 
@@ -146,7 +251,11 @@ const closeAuthDialogWaitAnim = () => {
                 opacity: 0,
               }"
             >
-              <h2>{{ t("auth.register") }}</h2>
+              <div class="flex justify-center items-center gap-3">
+                <div class="text-2xl cursor-pointer">
+                  {{ t("auth.register") }}
+                </div>
+              </div>
               <form action="#">
                 <div class="input-box">
                   <span class="icon">
@@ -197,19 +306,9 @@ const closeAuthDialogWaitAnim = () => {
 </template>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
 .wrapper {
+  height: 430px;
   position: relative;
-  width: 400px;
-  height: 440px;
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
@@ -222,8 +321,7 @@ const closeAuthDialogWaitAnim = () => {
 }
 
 .wrapper .form-box {
-  width: 100%;
-  padding: 40px;
+  padding: 40px 80px;
 }
 
 .wrapper .icon-close {
@@ -241,14 +339,9 @@ const closeAuthDialogWaitAnim = () => {
   z-index: 1;
 }
 
-.form-box h2 {
-  font-size: 2em;
-  text-align: center;
-}
-
 .input-box {
   position: relative;
-  width: 100%;
+  width: 350px;
   height: 50px;
   border-bottom: 2px solid;
   margin: 30px 0;
@@ -314,8 +407,6 @@ const closeAuthDialogWaitAnim = () => {
   outline: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 1em;
-  font-weight: 500;
 }
 
 .login-register {

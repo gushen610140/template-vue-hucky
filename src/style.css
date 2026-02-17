@@ -7,6 +7,12 @@
   themes: all;
 };
 
+@plugin "daisyui/theme" {
+  name: "light";
+  --color-primary: blue;
+  --color-secondary: teal;
+}
+
 /* Custom Scrollbar Styles */
 ::-webkit-scrollbar {
   width: 8px;

@@ -10,9 +10,12 @@ export interface messagesInterface {
     locale: string;
     login: string;
     register: string;
+    logout: string;
   };
   auth: {
     login: string;
+    login_password: string;
+    login_phone: string;
     register: string;
     email: string;
     password: string;
@@ -21,6 +24,7 @@ export interface messagesInterface {
     no_account: string;
     agree_terms: string;
     have_account: string;
+    logout: string;
   };
 }
 

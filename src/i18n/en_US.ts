@@ -8,9 +8,12 @@ export const en_USMessages: messagesInterface = {
     locale: "Locale",
     login: "Login",
     register: "Register",
+    logout: "Logout",
   },
   auth: {
     login: "Login",
+    login_password: "Password Login",
+    login_phone: "Phone Login",
     register: "Register",
     email: "Email",
     password: "Password",
@@ -19,5 +22,6 @@ export const en_USMessages: messagesInterface = {
     no_account: "Don't have an account?",
     agree_terms: "Agree to the Terms & Conditions",
     have_account: "Already have an account?",
+    logout: "Logout",
   },
 };

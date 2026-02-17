@@ -5,22 +5,30 @@ const instance = axios.create({
   baseURL: import.meta.env.VITE_SERVER,
 });
 
+// 所有请求自动加入 token
 instance.interceptors.request.use((config) => {
   const store = useUserStore();
-  if (!store.token) {
+  if (!store.accessToken) {
     return config;
   }
-  const token = store.token;
+  const token = store.accessToken;
   if (!token) {
     return config;
   }
-  config.headers["token"] = token;
+  config.headers["Authorization"] = `Bearer ${token}`;
   return config;
 });
 
-const http = async <T>(config: AxiosRequestConfig): Promise<Result<T>> => {
+export const http = async <T>(
+  config: AxiosRequestConfig,
+): Promise<Result<T>> => {
   const { data } = await instance.request<Result<T>>(config);
   return data;
 };
 
-export default http;
+export const httpWithCustomReturn = async <T>(
+  config: AxiosRequestConfig,
+): Promise<T> => {
+  const { data } = await instance.request<T>(config);
+  return data;
+};
