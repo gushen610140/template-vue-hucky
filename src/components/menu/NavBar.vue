@@ -23,6 +23,11 @@ const handleThrottleScroll = throttle(100, () => {
 });
 
 window.addEventListener("scroll", handleThrottleScroll);
+
+const navPageByResetScroll = (path: string) => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  navigateTo(path);
+};
 </script>
 
 <template>
@@ -61,10 +66,12 @@ window.addEventListener("scroll", handleThrottleScroll);
               class="menu dropdown-content bg-base-100 rounded-box z-1 mt-5 w-52 p-2 shadow"
             >
               <li>
-                <a @click="navigateTo('/')">{{ t("nav.home") }}</a>
+                <a @click="navPageByResetScroll('/')">{{ t("nav.home") }}</a>
               </li>
               <li>
-                <a @click="navigateTo('/about')">{{ t("nav.about") }}</a>
+                <a @click="navPageByResetScroll('/about')">{{
+                  t("nav.about")
+                }}</a>
               </li>
             </ul>
           </div>
@@ -73,10 +80,12 @@ window.addEventListener("scroll", handleThrottleScroll);
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1">
             <li>
-              <a @click="navigateTo('/')">{{ t("nav.home") }}</a>
+              <a @click="navPageByResetScroll('/')">{{ t("nav.home") }}</a>
             </li>
             <li>
-              <a @click="navigateTo('/about')">{{ t("nav.about") }}</a>
+              <a @click="navPageByResetScroll('/about')">{{
+                t("nav.about")
+              }}</a>
             </li>
           </ul>
         </div>
