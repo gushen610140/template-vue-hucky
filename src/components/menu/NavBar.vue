@@ -6,6 +6,7 @@ import { throttle } from "radash";
 import { AnimatePresence, motion } from "motion-v";
 import { navigateTo } from "@/utils/navigator";
 import UserAuthNavButton from "../button/UserAuthNavButton.vue";
+import LogoIcon from "../icon/LogoIcon.vue";
 
 const { t } = useI18n();
 

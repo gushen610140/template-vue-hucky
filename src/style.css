@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+
 @plugin "@iconify/tailwind4";
 
 @custom-variant dark (&:is(.dark *));
@@ -12,6 +13,8 @@
   --color-primary: #5092d4;
   --color-secondary: #bfd7f1;
   --color-accent: #76b9ef;
+  /* 自定义字体在 App.vue 中加载 */
+  --font-sans: '"Harmony", "Microsoft YaHei", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"'; 
 }
 
 /* Custom Scrollbar Styles */

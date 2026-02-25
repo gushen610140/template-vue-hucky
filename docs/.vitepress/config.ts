@@ -29,6 +29,7 @@ export default defineConfig({
           { text: "图表", link: "/cli-feature/chart" },
           { text: "辅助工具", link: "/cli-feature/radash" },
           { text: "动画", link: "/cli-feature/motion" },
+          { text: "字体", link: "/cli-feature/font" },
         ],
       },
     ],

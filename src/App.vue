@@ -14,4 +14,22 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped></style>
+<style>
+/* 接触 scoped 开启全局模式加载字体 */
+
+@font-face {
+  font-family: "LXGW";
+  src: url("/fonts/LXGWBright-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Harmony";
+  src: url("/fonts/HarmonyOS_Sans_Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+</style>

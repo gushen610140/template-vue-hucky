@@ -62,7 +62,7 @@ import { motion } from "motion-v";
             :while-hover="{ scale: 1.1 }"
             @click="
               navigateTo(
-                'https://www.douyin.com/user/MS4wLjABAAAAf6Q5VoHL_UfFQE8fmH3mgYCgL0tGxlpoSMLM9ZcKbpY?from_tab_name=main',
+                'https://www.douyin.com/user/MS4wLjABAAAAf6Q5VoHL_UfFQE8fmH3mgYCgL0tGxlpoSMLM9ZcKbpY',
               )
             "
           >

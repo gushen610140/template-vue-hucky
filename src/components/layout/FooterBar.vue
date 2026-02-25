@@ -4,7 +4,7 @@
   <div>
     <footer class="footer sm:footer-horizontal bg-base-300 items-center p-4">
       <aside class="grid-flow-col items-center">
-        <img src="@/assets/hucky.png" alt="hucky" class="h-18" />
+        <img src="@/assets/logo.svg" alt="hucky" class="h-18" />
         <p>Copyright © {{ new Date().getFullYear() }} - All right reserved</p>
       </aside>
       <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
