@@ -1,6 +1,17 @@
 <script lang="ts" setup>
 import { useI18n } from "vue-i18n";
 import { useLanguageStore } from "./stores/LanguageStore";
+import Lenis from "lenis";
+
+// 开启 lenis 平滑滚动
+const lenis = new Lenis();
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
 
 onMounted(() => {
   // 加载 i18n 初始语言

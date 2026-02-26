@@ -5,6 +5,7 @@ import router from "./router";
 import i18n from "./i18n";
 import { createPinia } from "pinia";
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
+import "lenis/dist/lenis.css";
 
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
