@@ -7,7 +7,7 @@ import RedBookIcon from "../icon/RedBookIcon.vue";
 
 <template>
   <footer
-    class="fixed bottom-0 left-0 w-full z-1 pt-16 pb-10 px-6 md:px-12 lg:px-20 text-sm font-[LXGW] lg:h-102 md:h-122 h-154"
+    class="w-full pt-16 pb-10 px-6 md:px-12 lg:px-20 text-sm font-[LXGW] lg:h-102 md:h-122 h-154"
   >
     <!-- Background overlay -->
     <div

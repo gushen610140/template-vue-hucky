@@ -1,10 +1,10 @@
 <script lang="ts" setup>
+import BasicIntroCard from "@/components/card/BasicIntroCard.vue";
 import DatePickerDisplayCard from "@/components/card/DatePickerDisplayCard.vue";
 import DevelopProgressCard from "@/components/card/DevelopProgressCard.vue";
 import FooterBarV2 from "@/components/layout/FooterBarV2.vue";
 import NavBar from "@/components/menu/NavBar.vue";
-import AnimText from "@/components/special/AnimText.vue";
-import { navigateTo } from "@/utils/navigator";
+import LogoModel from "@/components/three/LogoModel.vue";
 
 const progress = ref([
   {
@@ -40,38 +40,20 @@ const progress = ref([
 
 <template>
   <div class="lg:pb-102 md:pb-122 pb-154">
-    <!-- 这里开 relative 形成 stack context -->
-    <div class="bg-base-200 relative z-2">
+    <!-- 主内容区域，在 footer 上方 -->
+    <div class="bg-base-200 relative z-5">
+      <!-- 顶部与首页内容 -->
       <div class="h-screen flex flex-col">
         <NavBar class="fixed top-0 left-0 z-10" />
         <!-- 同高度占位颜色叠加 -->
         <div class="h-16 bg-base-300" />
-        <div class="hero flex-1">
-          <div class="hero-content text-center">
-            <div class="max-w-md">
-              <!-- <h1 class="text-5xl font-bold">{{ $t("home.welcome") }}</h1> -->
-              <h1 class="text-5xl font-bold">
-                <AnimText text="home.welcome" />
-              </h1>
-              <div class="py-6">
-                <!-- {{ $t("home.intro_line1") }}<br />
-              {{ $t("home.intro_line2") }}<br />
-              {{ $t("home.intro_line3") }} -->
-                <AnimText text="home.intro_line1" /><br />
-                <AnimText text="home.intro_line2" /><br />
-                <AnimText text="home.intro_line3" />
-              </div>
-              <button
-                class="btn btn-primary"
-                @click="navigateTo('http://localhost:5174')"
-              >
-                <!-- {{ $t("home.read_doc") }} -->
-                <AnimText text="home.read_doc" />
-              </button>
-            </div>
-          </div>
-        </div>
+        <BasicIntroCard class="isolate z-8" />
       </div>
+
+      <!-- fixed three js 背景 -->
+      <LogoModel class="fixed left-0 top-0 h-screen w-full z-7" />
+
+      <!-- 脚手架开发进度 -->
       <div class="p-4">
         <h1 class="text-4xl font-bold mb-12 ml-10">脚手架开发进度</h1>
         <div class="w-full grid grid-cols-3 gap-4 justify-items-center">
@@ -85,6 +67,8 @@ const progress = ref([
           />
         </div>
       </div>
+
+      <!-- 组件演示 -->
       <div class="p-4">
         <h1 class="text-4xl font-bold mb-12 ml-10">组件演示</h1>
         <div class="w-full grid grid-cols-3 gap-4 justify-items-center">
@@ -92,7 +76,9 @@ const progress = ref([
         </div>
       </div>
     </div>
-    <FooterBarV2 />
+
+    <!-- fixed footer -->
+    <FooterBarV2 class="fixed bottom-0 left-0 z-1" />
   </div>
 </template>
 

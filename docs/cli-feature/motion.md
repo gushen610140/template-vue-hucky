@@ -31,3 +31,7 @@ Hucky 安装了 [motion-v](https://motion.net.cn/docs/vue) 库，您可以在组
 :::tip 提示
 exit 会自动为元素的进入也添加动画效果。
 :::
+
+## 3D 动画
+
+Hucky 选用 [GSAP](https://gsap.com/docs/v3/) 作为 3D 动画库，您可以学习相关知识
