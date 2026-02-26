@@ -6,6 +6,8 @@ export interface messagesInterface {
   nav: {
     home: string;
     about: string;
+    demo: string;
+    join: string;
     theme: string;
     locale: string;
     login: string;

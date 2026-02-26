@@ -33,13 +33,10 @@ const onClickChangeLocal = (newLanguage: string) => {
           d="M12 21a9 9 0 1 0 0-18m0 18a9 9 0 1 1 0-18m0 18c2.761 0 3.941-5.163 3.941-9S14.761 3 12 3m0 18c-2.761 0-3.941-5.163-3.941-9S9.239 3 12 3M3.5 9h17m-17 6h17"
         />
       </svg>
-      <svg
-        class="mt-px hidden size-2 fill-current opacity-60 sm:inline-block"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 2048 2048"
-      >
-        <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z" />
-      </svg>
+      <span class="text-base-content/70">{{ t("nav.locale") }}</span>
+      <span
+        class="icon-[material-symbols--keyboard-arrow-down-rounded] text-lg text-base-content/70"
+      />
     </div>
     <div
       tabindex="0"

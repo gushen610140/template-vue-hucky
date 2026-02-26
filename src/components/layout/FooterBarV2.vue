@@ -7,7 +7,7 @@ import RedBookIcon from "../icon/RedBookIcon.vue";
 
 <template>
   <footer
-    class="fixed bottom-0 left-0 w-full z-[-1] pt-16 pb-10 px-6 md:px-12 lg:px-20 text-sm font-[LXGW] h-102"
+    class="fixed bottom-0 left-0 w-full z-1 pt-16 pb-10 px-6 md:px-12 lg:px-20 text-sm font-[LXGW] lg:h-102 md:h-122 h-154"
   >
     <!-- Background overlay -->
     <div
@@ -106,8 +106,8 @@ import RedBookIcon from "../icon/RedBookIcon.vue";
     </div>
 
     <!-- Bottom legal line -->
-    <div class="mt-8 text-xs text-gray-500 text-center md:text-left">
-      <div class="max-w-7xl mx-auto px-6 md:px-0">
+    <div class="mt-8 text-xs text-gray-500 text-left">
+      <div class="max-w-7xl mx-auto">
         Copyright © 2026 sunway.icu | 备案号：浙ICP备2023010223号 |
         增值电信业务经营许可证：浙B2-20110004
       </div>

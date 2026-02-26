@@ -1,6 +1,17 @@
 <script setup lang="ts">
 import { useGlobalThemeHook } from "@/hooks/globalThemeHook";
 import { useI18n } from "vue-i18n";
+import Lenis from "lenis";
+
+// 开启 lenis 平滑滚动
+const lenis = new Lenis();
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
 
 const { t } = useI18n();
 
@@ -20,17 +31,13 @@ const { changeGlobalTheme, curGlobalTheme, optionalThemes } =
           <div class="bg-secondary size-1 rounded-full" />
           <div class="bg-accent size-1 rounded-full" />
         </div>
-        <svg
-          class="mt-px hidden size-2 fill-current opacity-60 sm:inline-block"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 2048 2048"
-        >
-          <path
-            d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"
-          />
-        </svg>
+        <span class="text-base-content/70">{{ t("nav.theme") }}</span>
+        <span
+          class="icon-[material-symbols--keyboard-arrow-down-rounded] text-lg text-base-content/70"
+        />
       </div>
       <ul
+        data-lenis-prevent
         tabindex="-1"
         class="dropdown-content bg-base-300 rounded-box z-1 w-52 p-2 shadow-2xl max-h-84 overflow-auto mt-6"
       >

@@ -4,6 +4,8 @@ export const zh_CNMessages: messagesInterface = {
   nav: {
     home: "首页",
     about: "关于",
+    demo: "演示",
+    join: "加入",
     theme: "主题",
     locale: "语言",
     login: "登录",

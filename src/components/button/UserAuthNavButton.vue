@@ -25,15 +25,16 @@ const handleLogout = () => {
     <div
       v-if="!userStore.checkUserLogin()"
       role="button"
-      class="btn btn-circle btn-sm btn-ghost px-3 w-16"
+      class="btn btn-sm btn-primary px-3"
       @click="
         renderAuthDialog('login');
         closeDropdown();
       "
     >
-      <span class="text-sm text-base-content/70">
+      <span>
         {{ $t("nav.login") }}
       </span>
+      <span class="icon-[material-symbols--login-rounded] text-sm" />
     </div>
     <div
       v-else

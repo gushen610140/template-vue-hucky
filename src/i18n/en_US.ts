@@ -4,6 +4,8 @@ export const en_USMessages: messagesInterface = {
   nav: {
     home: "Home",
     about: "About",
+    demo: "Demo",
+    join: "Join",
     theme: "Theme",
     locale: "Locale",
     login: "Login",

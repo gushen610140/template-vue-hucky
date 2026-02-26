@@ -39,8 +39,9 @@ const progress = ref([
 </script>
 
 <template>
-  <div>
-    <div class="bg-base-200">
+  <div class="lg:pb-102 md:pb-122 pb-154">
+    <!-- 这里开 relative 形成 stack context -->
+    <div class="bg-base-200 relative z-2">
       <div class="h-screen flex flex-col">
         <NavBar class="fixed top-0 left-0 z-10" />
         <!-- 同高度占位颜色叠加 -->
@@ -91,7 +92,6 @@ const progress = ref([
         </div>
       </div>
     </div>
-    <div class="h-102 bg-transparent z-5" />
     <FooterBarV2 />
   </div>
 </template>
