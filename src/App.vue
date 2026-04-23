@@ -5,7 +5,6 @@ import Lenis from "lenis";
 
 // 开启 lenis 平滑滚动
 const lenis = new Lenis({
-  // 通过添加 data-lenis-prevent 属性来防止 lenis 平滑滚动
   prevent: (node) =>
     node.tagName === "SELECT" || node.hasAttribute("data-lenis-prevent"),
 });

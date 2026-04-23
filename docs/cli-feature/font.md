@@ -12,11 +12,11 @@
 您可以通过 tailwindcss 的类来调整局部字体，例如：
 
 ```html
-<div class="font-Harmony">
+<div class="font-[Harmony]">
   这是 Harmony 字体
 </div>
 
-<div class="font-LXGW">
+<div class="font-[LXGW]">
   这是落霞孤鹜字体
 </div>
 ```
